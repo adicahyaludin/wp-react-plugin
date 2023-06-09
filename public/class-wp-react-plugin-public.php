@@ -96,6 +96,9 @@ class Wp_React_Plugin_Public {
 		 * class.
 		 */
 
+		$script_args = include( WP_REACT_PLUGIN_PATH . 'assets/public/scripts.asset.php');
+		wp_enqueue_script( 'wp-typescript', WP_REACT_PLUGIN_URI . 'assets/public/scripts.js', $script_args['dependencies'], $script_args['version'] );
+
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wp-react-plugin-public.js', array( 'jquery' ), $this->version, false );
 
 	}

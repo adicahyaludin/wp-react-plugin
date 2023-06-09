@@ -1,0 +1,1 @@
+{"version":3,"file":"scripts.js","mappings":";;;;;;AAAa;;AACb,IAAIA,QAAQ,GAAG,OAAO;AACtBC,OAAO,CAACC,GAAG,CAAC;EAAEF;AAAS,CAAC,CAAC,C","sources":["webpack:///./assets/src/scripts.ts"],"sourcesContent":["\"use strict\";\nlet userName = \"Adi C\";\nconsole.log({ userName });\n"],"names":["userName","console","log"],"sourceRoot":""}
