@@ -73,7 +73,10 @@ class Wp_React_Plugin_Public {
 		 * class.
 		 */
 
-		wp_enqueue_style( 'wp-typescript', WP_REACT_PLUGIN_URI . 'assets/public/scripts.css', array(), $this->version, 'all' );
+		if ( get_query_var( 'wp-react' ) ) :
+			wp_enqueue_style( 'wp-typescript', WP_REACT_PLUGIN_URI . 'assets/public/scripts.css', array(), $this->version, 'all' );
+		endif;
+
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wp-react-plugin-public.css', array(), $this->version, 'all' );
 
 	}
@@ -97,8 +100,12 @@ class Wp_React_Plugin_Public {
 		 * class.
 		 */
 
-		$script_args = include( WP_REACT_PLUGIN_PATH . 'assets/public/scripts.asset.php');
-		wp_enqueue_script( 'wp-typescript', WP_REACT_PLUGIN_URI . 'assets/public/scripts.js', $script_args['dependencies'], $script_args['version'], true ); 
+		if ( get_query_var( 'wp-react' ) ) :
+
+			$script_args = include( WP_REACT_PLUGIN_PATH . 'assets/public/scripts.asset.php');
+			wp_enqueue_script( 'wp-typescript', WP_REACT_PLUGIN_URI . 'assets/public/scripts.js', $script_args['dependencies'], $script_args['version'], true ); 
+
+		endif;
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wp-react-plugin-public.js', array( 'jquery' ), $this->version, false );
 

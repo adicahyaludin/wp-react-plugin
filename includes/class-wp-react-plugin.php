@@ -177,7 +177,7 @@ class Wp_React_Plugin {
 
 		$this->loader->add_action( 'init', $plugin_public, 'add_wp_react_rewrite_rule' );
 		$this->loader->add_filter( 'query_vars', $plugin_public, 'add_wp_react_query_vars' );
-		$this->loader->add_action( 'template_include', $plugin_public, 'display_wp_react_page' );
+		$this->loader->add_action( 'template_redirect', $plugin_public, 'display_wp_react_page' );
 
 	}
 
