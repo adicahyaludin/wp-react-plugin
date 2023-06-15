@@ -1,5 +1,7 @@
+import { Header } from "./Home2.style";
+
 const NoPage = () => {
-    return <h1>404</h1>;
+    return <Header>404</Header>;
 };
   
 export default NoPage;

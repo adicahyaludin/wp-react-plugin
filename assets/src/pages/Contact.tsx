@@ -1,5 +1,7 @@
+import { Header } from "./Home2.style";
+
 const Contact = () => {
-    return <h1>Contact Me</h1>;
+    return <Header>Contact Me</Header>;
 };
   
 export default Contact;

@@ -1,21 +1,20 @@
 import { Outlet, Link } from "react-router-dom";
+import { Menu, MenuItem } from "./Layout.style";
 
 const Layout = () => {
   return (
     <>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/wp-react/">Home</Link>
-          </li>
-          <li>
-            <Link to="/wp-react/blogs">Blogs</Link>
-          </li>
-          <li>
-            <Link to="/wp-react/contact">Contact</Link>
-          </li>
-        </ul>
-      </nav>
+      <Menu>
+        <MenuItem>
+          <Link to="/wp-react/">Home</Link>
+        </MenuItem>
+        <MenuItem>
+          <Link to="/wp-react/blogs">Blogs</Link>
+        </MenuItem>
+        <MenuItem>
+          <Link to="/wp-react/contact">Contact</Link>
+        </MenuItem>
+      </Menu>
 
       <Outlet />
     </>

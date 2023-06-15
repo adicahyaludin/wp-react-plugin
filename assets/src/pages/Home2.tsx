@@ -1,5 +1,7 @@
+import { Header } from "./Home2.style";
+
 const Home2 = () => {
-    return <h1>Home</h1>;
+    return <Header>Home</Header>;
 };
   
 export default Home2;

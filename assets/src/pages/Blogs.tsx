@@ -1,5 +1,7 @@
+import { Header } from "./Home2.style";
+
 const Blogs = () => {
-    return <h1>Blog Articles</h1>;
+    return <Header>Blog Articles</Header>;
 };
   
 export default Blogs;
