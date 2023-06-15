@@ -4,6 +4,7 @@
   },
   "devDependencies": {
     "@wordpress/scripts": "^26.6.0",
+    "react-router-dom": "^6.12.1",
     "ts-loader": "^9.4.3",
     "typescript": "^5.1.3"
   },

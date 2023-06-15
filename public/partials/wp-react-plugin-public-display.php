@@ -13,4 +13,13 @@
  */
 ?>
 
-<!-- This file should primarily consist of HTML with a little bit of PHP. -->
+<?php
+wp_head();
+?>
+
+<div id="wp-react-frontend">
+    <h2>Loading...</h2>
+</div>
+
+<?php
+wp_footer();

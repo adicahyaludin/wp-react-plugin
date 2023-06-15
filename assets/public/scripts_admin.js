@@ -7941,9 +7941,9 @@ module.exports = window["wp"]["element"];
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-/*!********************************!*\
-  !*** ./assets/src/scripts.tsx ***!
-  \********************************/
+/*!**************************************!*\
+  !*** ./assets/src/scripts-admin.tsx ***!
+  \**************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 /* harmony import */ var _component_Home__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./component/Home */ "./assets/src/component/Home.tsx");
@@ -7952,9 +7952,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-(0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.render)((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_component_Home__WEBPACK_IMPORTED_MODULE_1__["default"], {}), document.getElementById("wp-react-frontend"));
+(0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.render)((0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(_component_Home__WEBPACK_IMPORTED_MODULE_1__["default"], {}), document.getElementById("wp-react-admin"));
 })();
 
 /******/ })()
 ;
-//# sourceMappingURL=scripts.js.map
+//# sourceMappingURL=scripts_admin.js.map

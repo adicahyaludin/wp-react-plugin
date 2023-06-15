@@ -73,6 +73,7 @@ class Wp_React_Plugin_Public {
 		 * class.
 		 */
 
+		wp_enqueue_style( 'wp-typescript', WP_REACT_PLUGIN_URI . 'assets/public/scripts.css', array(), $this->version, 'all' );
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wp-react-plugin-public.css', array(), $this->version, 'all' );
 
 	}
@@ -97,9 +98,53 @@ class Wp_React_Plugin_Public {
 		 */
 
 		$script_args = include( WP_REACT_PLUGIN_PATH . 'assets/public/scripts.asset.php');
-		wp_enqueue_script( 'wp-typescript', WP_REACT_PLUGIN_URI . 'assets/public/scripts.js', $script_args['dependencies'], $script_args['version'] );
+		wp_enqueue_script( 'wp-typescript', WP_REACT_PLUGIN_URI . 'assets/public/scripts.js', $script_args['dependencies'], $script_args['version'], true ); 
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wp-react-plugin-public.js', array( 'jquery' ), $this->version, false );
+
+	}
+
+	/**
+	 * Add wp react rewrite rule
+	 * Hooked via action init
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public function add_wp_react_rewrite_rule() {
+
+		add_rewrite_rule( '^wp-react/?', 'index.php?wp-react=1', 'top' );
+
+	}
+
+	/**
+	 * Add wp react query vars
+	 * Hooked via filter query_vars
+	 * @since 1.0.0
+	 * @param array $query_vars
+	 * @return array
+	 */
+	public function add_wp_react_query_vars( $query_vars ) {
+
+		$query_vars[] = 'wp-react';
+		
+		return $query_vars;
+
+	}
+
+	/**
+	 * Display wp react page
+	 * Hooked via action template_redirect
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public function display_wp_react_page() {
+
+		if ( get_query_var( 'wp-react' ) ) :
+
+			include WP_REACT_PLUGIN_PATH.'/public/partials/wp-react-plugin-public-display.php';
+			exit;
+
+		endif;
 
 	}
 

@@ -41,6 +41,29 @@ define( 'WP_REACT_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WP_REACT_PLUGIN_URI', plugin_dir_url( __FILE__ ) );
 
 /**
+ * Print debug
+ * @since 1.0.0
+ * @return html
+ */
+if ( !function_exists( '__print_debug' ) ) :
+
+	function __print_debug() {
+
+		$bt     = debug_backtrace();
+		$caller = array_shift($bt);
+		$args   = [
+			"file"  => $caller["file"],
+			"line"  => $caller["line"],
+			"args"  => func_get_args()
+		];
+
+		?><pre><?php print_r($args); ?></pre><?php
+
+	}
+
+endif;
+
+/**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-wp-react-plugin-activator.php
  */

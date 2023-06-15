@@ -14,3 +14,7 @@
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
+
+<div id="wp-react-admin">
+    <h2>Loading...</h2>
+</div>

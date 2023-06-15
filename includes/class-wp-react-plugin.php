@@ -157,6 +157,8 @@ class Wp_React_Plugin {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_wp_react_admin_menu' );
+		
 	}
 
 	/**
@@ -172,6 +174,10 @@ class Wp_React_Plugin {
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+
+		$this->loader->add_action( 'init', $plugin_public, 'add_wp_react_rewrite_rule' );
+		$this->loader->add_filter( 'query_vars', $plugin_public, 'add_wp_react_query_vars' );
+		$this->loader->add_action( 'template_include', $plugin_public, 'display_wp_react_page' );
 
 	}
 

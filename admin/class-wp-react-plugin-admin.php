@@ -74,6 +74,7 @@ class Wp_React_Plugin_Admin {
 		 */
 
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wp-react-plugin-admin.css', array(), $this->version, 'all' );
+		wp_enqueue_style( 'wp-typescript', WP_REACT_PLUGIN_URI . 'assets/public/scripts_admin.css', array(), $this->version, 'all' );
 
 	}
 
@@ -96,7 +97,33 @@ class Wp_React_Plugin_Admin {
 		 * class.
 		 */
 
+		$script_args = include( WP_REACT_PLUGIN_PATH . 'assets/public/scripts_admin.asset.php');
+		wp_enqueue_script( 'wp-typescript', WP_REACT_PLUGIN_URI . 'assets/public/scripts_admin.js', $script_args['dependencies'], $script_args['version'], true );
+ 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wp-react-plugin-admin.js', array( 'jquery' ), $this->version, false );
+
+	}
+
+	/**
+	 * Add wp react admin menu
+	 * Hooked via action admin_menu
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public function add_wp_react_admin_menu() {
+
+		add_menu_page( __( 'WP React', 'wp-react-plugin'), __( 'WP React', 'wp-react-plugin'), 'manage_options', 'wp-react-admin', [$this,'display_wp_react_admin_page'], 'dashicons-admin-post', '2.1' );
+
+	}
+
+	/**
+	 * Callback display wp react admin menu page
+	 * @since 1.0.0
+	 * @return void
+	 */
+	public function display_wp_react_admin_page() {
+
+		require_once WP_REACT_PLUGIN_PATH . 'admin/partials/wp-react-plugin-admin-display.php';
 
 	}
 
